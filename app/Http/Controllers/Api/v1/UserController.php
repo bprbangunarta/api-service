@@ -20,7 +20,7 @@ class UserController extends Controller
         protected ClientLogService $clientlogService,
     ) {}
 
-    public function show(Request $request)
+    public function funding_show(Request $request)
     {
         $request->validate([
             'username' => 'required',

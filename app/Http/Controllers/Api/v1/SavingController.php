@@ -55,10 +55,47 @@ class SavingController extends Controller
         }
     }
 
+    // public function show($account, Request $request)
+    // {
+    //     try {
+    //         $saving = $this->savingService->readAccount($account);
+    //         if (!$saving) {
+    //             $response = response()->json([
+    //                 'status'  => false,
+    //                 'message' => 'Make sure the account is correct',
+    //             ], 401);
+
+    //             $this->clientlogService->createData($request, $response);
+    //             return $response;
+    //         }
+
+    //         $address = $this->savingService->readAddress($account);
+
+    //         $response = response()->json([
+    //             'status'  => true,
+    //             'message' => 'Savings account details',
+    //             'data'    => new SavingDetailResource((object)$saving, $address)
+    //         ], 200);
+
+    //         $this->clientlogService->createData($request, $response);
+    //         return $response;
+    //     } catch (\Throwable $e) {
+    //         Log::error('Accounts Details: ' . $e->getMessage());
+
+    //         $response = response()->json([
+    //             'status'  => false,
+    //             'message' => 'Account not found or server error occurred'
+    //         ], 500);
+
+    //         $this->clientlogService->createData($request, $response);
+    //         return $response;
+    //     }
+    // }
+
     public function show($account, Request $request)
     {
         try {
-            $saving = $this->savingService->readAccount($account);
+            $saving = $this->savingService->readAccountDetail($account);
             if (!$saving) {
                 $response = response()->json([
                     'status'  => false,
